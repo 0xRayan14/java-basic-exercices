@@ -1,12 +1,9 @@
 package ch.jobtrek;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 public class Collections {
 
     /**
@@ -51,8 +48,17 @@ public class Collections {
      * Should return zero if there is no numbers
      */
     public static Integer sumArrays(List<List<Integer>> numbers) {
-        int sum = numbers.stream()
-        return 3; // Replace with your code here
+        int result = 0;
+        for (var i:numbers) {
+            for (var j:i)
+                if (j%2 != 0) {
+                    result += 2*j;
+                }
+                else {
+                    result += j;
+                }
+        }
+        return result;
     }
 
     /**
@@ -60,6 +66,9 @@ public class Collections {
      * @return The student with the best grade in the map
      */
     public static String bestStudent(Map<String, Integer> students) {
-        return ""; // Replace with your code here
+        return students
+                .entrySet().stream()
+                .max(Comparator.comparing(Map.Entry::getKey))
+                .get().getKey();
     }
 }

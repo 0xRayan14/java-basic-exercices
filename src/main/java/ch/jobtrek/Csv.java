@@ -2,6 +2,7 @@ package ch.jobtrek;
 
 import ch.jobtrek.sbb.Tunnelable;
 
+import java.io.File;
 import java.net.URI;
 import java.util.*;
 
@@ -14,7 +15,10 @@ public class Csv {
      * @return A List of objects that implements the Tunnelable interface. You need to create this special class.
      */
     public static List<Tunnelable> importCSVfile(URI filePath) {
-        return List.of(); // Replace with your code here
+        List<Tunnelable> tunnelableList = new ArrayList<>();
+
+
+        return tunnelableList;
     }
 
     /**
