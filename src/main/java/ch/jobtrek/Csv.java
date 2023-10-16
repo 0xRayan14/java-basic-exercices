@@ -6,7 +6,6 @@ import ch.jobtrek.sbb.Tunnelable;
 import java.io.*;
 import java.net.URI;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -49,7 +48,11 @@ public class Csv {
      * @return The computed average of the length of all tunnels
      */
     public static double computeAverageLength(List<Tunnelable> tunnels) {
-        return 0;
+        return tunnels.stream()
+                .mapToDouble(Tunnelable::getKilometerLength)
+                .average()
+                .orElse(Double.NaN);
+
 
     }
     /**
