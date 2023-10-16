@@ -60,7 +60,8 @@ public class Csv {
      * @return A Map with the year as key and the number of tunnels as value
      */
     public static Map<Integer, Long> tunnelsByYears(List<Tunnelable> tunnels) {
-        return Map.of(); // Replace with your code here
+        return tunnels.stream()
+                .collect(Collectors.groupingBy(Tunnelable::getBuildYear, Collectors.counting()));
     }
 
     /**
