@@ -69,7 +69,11 @@ public class Csv {
      * @return The year in which the most tunnels were built
      */
     public static int yearWithBiggestTunnelBuilds(List<Tunnelable> tunnels) {
-        return 0; // Replace with your code here
+        return tunnelsByYears(tunnels)
+                .entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .get().getKey();
+
     }
 
 }
